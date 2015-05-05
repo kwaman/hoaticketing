@@ -69,8 +69,16 @@ function ensureAuthenticated(req, res, next){
 // Index method
 app.get('/', function(req, res){
   res.render('index', {
+    title: 'HOA Ticketing System',
     isAuthenticated: req.isAuthenticated(),
     user: req.user
+  });
+});
+
+// About page
+app.get('/about', function(req,res){
+  res.render('about', {
+    title: 'HOA Ticketing System'
   });
 });
 
