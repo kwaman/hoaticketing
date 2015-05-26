@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 25, 2015 at 08:54 PM
+-- Generation Time: May 25, 2015 at 09:07 PM
 -- Server version: 5.5.43-0+deb8u1
 -- PHP Version: 5.6.7-1
 
@@ -116,6 +116,24 @@ MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `Ticket`
 MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Ownership`
+--
+ALTER TABLE `Ownership`
+ADD CONSTRAINT `Ownership_ibfk_2` FOREIGN KEY (`PropertyID`) REFERENCES `Property` (`ID`),
+ADD CONSTRAINT `Ownership_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `User` (`ID`);
+
+--
+-- Constraints for table `Ticket`
+--
+ALTER TABLE `Ticket`
+ADD CONSTRAINT `Ticket_ibfk_2` FOREIGN KEY (`PropertyID`) REFERENCES `Property` (`ID`),
+ADD CONSTRAINT `Ticket_ibfk_1` FOREIGN KEY (`AssignedTo`) REFERENCES `User` (`ID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
